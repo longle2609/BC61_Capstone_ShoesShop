@@ -48,7 +48,7 @@ const validateData = (userObj, confirm) => {
     return false;
   }
   if (password !== confirm) {
-    alert("password k giong confirm");
+    alert("password khong dong nhat");
     return false;
   }
   const regexPhone = /^[0-9]{10,}$/;
