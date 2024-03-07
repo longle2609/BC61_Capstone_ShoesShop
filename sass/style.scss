@@ -1,0 +1,365 @@
+// Biến (variable)
+$color_white_100: white;
+$color_dark_100: #262626;
+$color_yellow_100: #f9d310;
+$color_pink_100: #ff7575;
+$color_gray_100: gray;
+
+// Font-size
+$fs_logo: 24px;
+$fs_content: 16px;
+$fs_title: 60px;
+$fs_title_2: 34px;
+$fs_title_3: 25px;
+$fs_p: 12px;
+
+// font-weight
+$fw_300: 300;
+$fw_400: 400;
+$fw_500: 500;
+$fw_bold: bold;
+
+// mixin
+@mixin styleText($color, $fs, $fw, $deco: none) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  text-decoration: $deco;
+}
+
+@mixin styleButton($bg, $p, $border, $color, $fs, $shadow: none) {
+  background-color: $bg;
+  padding: $p;
+  border: $border;
+  color: $color;
+  font-size: $fs;
+  box-shadow: $shadow;
+}
+
+// nested route
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+// Header
+header {
+  .navbar {
+    background-color: $color_dark_100 !important;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      > div {
+        width: 50px;
+      }
+    }
+
+    .navbar-brand {
+      @include styleText($color_white_100, $fs_logo, $fw_bold);
+    }
+  }
+
+  .login {
+    a {
+      @include styleText($color_white_100, $fs_content, $fw_300);
+      transition: all 0.5s;
+
+      &:hover {
+        color: $color_pink_100;
+      }
+    }
+  }
+}
+
+// Menu
+.menu {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      margin: 10px 15px;
+      position: relative;
+
+      // Parent selector
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: $color_pink_100;
+        display: block;
+        left: 0;
+        bottom: 0;
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+
+        a {
+          color: $color_pink_100;
+        }
+      }
+
+      // li.active
+      &.active {
+        // li.active::before
+        &::before {
+          width: 100%;
+        }
+
+        a {
+          color: $color_pink_100;
+        }
+      }
+
+      a {
+        @include styleText($color_dark_100, $fs_content, $fw_400);
+      }
+    }
+  }
+}
+
+// Banner
+.banner {
+  background-image: url(./../image/img_background1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left center;
+  width: 100%;
+
+  .carousel-inner {
+    .carousel-item {
+      .carousel-item__wrap {
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+
+        .carousel-item__text {
+          h1 {
+            @include styleText($color_dark_100, $fs_title, $fw_bold);
+          }
+
+          button {
+            a {
+              color: $color_white_100;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ITEM DETAIL
+.item {
+  .item__product {
+    display: flex;
+    justify-content: space-between;
+
+    .item__product-wrap {
+      flex: 1;
+
+      h4 {
+        @include styleText($color_pink_100, $fs_title_2, $fw_300);
+      }
+    }
+  }
+}
+
+// Product
+.product {
+  margin-bottom: 100px;
+  .product__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+
+    .product__item {
+      border: 1px solid rgb(209, 209, 209);
+      border-radius: 8px;
+      background-color: rgb(245, 245, 245);
+
+      img {
+        width: 100%;
+        padding: 50px;
+      }
+
+      h3 {
+        @include styleText($color_dark_100, $fs_title_3, $fw_400);
+        padding: 0 10px;
+      }
+
+      p {
+        @include styleText($color_gray_100, $fs_content, $fw_300);
+        padding: 0 10px;
+        margin-bottom: 0;
+        // thêm ... khi mà ko đủ độ rộng
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .group__action {
+        display: flex;
+        margin-top: 5px;
+
+        .action__buyNow {
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          background-color: $color_pink_100;
+          align-items: center;
+          font-size: $fs_title_3;
+          border-radius: 0 0 0 5px;
+
+          a {
+            text-decoration: none;
+            color: $color_dark_100;
+          }
+        }
+
+        .action__price {
+          flex: 1;
+          background-color: $color_gray_100;
+          text-align: center;
+          border-radius: 0 0 5px 0;
+
+          p {
+            @include styleText($color_dark_100, $fs_title_2, $fw_500);
+          }
+        }
+      }
+    }
+  }
+
+  .product__pagination {
+    cursor: pointer;
+
+    .active__button {
+      background: blue;
+      color: white;
+    }
+  }
+}
+
+// REGISTER
+.register {
+  .register__content {
+    .register__wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      gap: 50px;
+
+      .register__wrap-form {
+        font-size: 30px;
+        position: relative;
+
+        &::after {
+          content: "(*)";
+          position: absolute;
+          font-size: 20px;
+          font-weight: 400;
+          color: red;
+        }
+
+        .form__input {
+          // border: none;
+          height: 50px;
+          width: 400px;
+          font-size: 25px;
+          border: solid 1px $color_pink_100;
+          border-width: 0 0 4px 0;
+          outline: none;
+        }
+      }
+
+      .register__wrap-check {
+        .form-check {
+          font-size: 25px;
+        }
+      }
+    }
+
+    .register__submit {
+      text-align: center;
+    }
+  }
+}
+
+// FOOTER
+footer {
+  .footer__top {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .footer__top-content {
+      display: flex;
+      justify-content: space-between;
+
+      .footer__top-item {
+        flex: 1;
+
+        h4 {
+          @include styleText($color_dark_100, $fs_content, $fw_bold);
+        }
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+          @include styleText($color_gray_100, $fs_p, $fw_400);
+        }
+
+        p {
+          @include styleText($color_gray_100, $fs_p, $fw_400);
+        }
+
+        a {
+          text-decoration: none;
+          color: $color_pink_100;
+        }
+      }
+    }
+  }
+
+  .footer__bottom {
+    background-color: $color_dark_100;
+    color: $color_white_100;
+
+    .footer__bottom-content {
+      display: flex;
+      justify-content: space-between;
+
+      .footer__bottom-item {
+        flex: 1;
+
+        h4 {
+          @include styleText($color_white_100, $fs_content, $fw_bold);
+        }
+
+        p {
+          @include styleText($color_gray_100, $fs_p, $fw_400);
+        }
+
+        a {
+          text-decoration: none;
+          color: $color_pink_100;
+        }
+      }
+    }
+  }
+}

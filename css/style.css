@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+header .navbar {
+  background-color: #262626 !important;
+}
+header .navbar .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+header .navbar .logo > div {
+  width: 50px;
+}
+header .navbar .navbar-brand {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+header .login a {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+header .login a:hover {
+  color: #ff7575;
+}
+
+.menu {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.menu ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.menu ul li {
+  margin: 10px 15px;
+  position: relative;
+}
+.menu ul li::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #ff7575;
+  display: block;
+  left: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+.menu ul li:hover::before {
+  width: 100%;
+}
+.menu ul li:hover a {
+  color: #ff7575;
+}
+.menu ul li.active::before {
+  width: 100%;
+}
+.menu ul li.active a {
+  color: #ff7575;
+}
+.menu ul li a {
+  color: #262626;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.banner {
+  background-image: url(./../image/img_background1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left center;
+  width: 100%;
+}
+.banner .carousel-inner .carousel-item .carousel-item__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.banner .carousel-inner .carousel-item .carousel-item__wrap .carousel-item__text h1 {
+  color: #262626;
+  font-size: 60px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.banner .carousel-inner .carousel-item .carousel-item__wrap .carousel-item__text button a {
+  color: white;
+  text-decoration: none;
+}
+
+.item .item__product {
+  display: flex;
+  justify-content: space-between;
+}
+.item .item__product .item__product-wrap {
+  flex: 1;
+}
+.item .item__product .item__product-wrap h4 {
+  color: #ff7575;
+  font-size: 34px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.product {
+  margin-bottom: 100px;
+}
+.product .product__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+}
+.product .product__content .product__item {
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 8px;
+  background-color: rgb(245, 245, 245);
+}
+.product .product__content .product__item img {
+  width: 100%;
+  padding: 50px;
+}
+.product .product__content .product__item h3 {
+  color: #262626;
+  font-size: 25px;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0 10px;
+}
+.product .product__content .product__item p {
+  color: gray;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  padding: 0 10px;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.product .product__content .product__item .group__action {
+  display: flex;
+  margin-top: 5px;
+}
+.product .product__content .product__item .group__action .action__buyNow {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background-color: #ff7575;
+  align-items: center;
+  font-size: 25px;
+  border-radius: 0 0 0 5px;
+}
+.product .product__content .product__item .group__action .action__buyNow a {
+  text-decoration: none;
+  color: #262626;
+}
+.product .product__content .product__item .group__action .action__price {
+  flex: 1;
+  background-color: gray;
+  text-align: center;
+  border-radius: 0 0 5px 0;
+}
+.product .product__content .product__item .group__action .action__price p {
+  color: #262626;
+  font-size: 34px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.product .product__pagination {
+  cursor: pointer;
+}
+.product .product__pagination .active__button {
+  background: blue;
+  color: white;
+}
+
+.register .register__content .register__wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 50px;
+}
+.register .register__content .register__wrap .register__wrap-form {
+  font-size: 30px;
+  position: relative;
+}
+.register .register__content .register__wrap .register__wrap-form::after {
+  content: "(*)";
+  position: absolute;
+  font-size: 20px;
+  font-weight: 400;
+  color: red;
+}
+.register .register__content .register__wrap .register__wrap-form .form__input {
+  height: 50px;
+  width: 400px;
+  font-size: 25px;
+  border: solid 1px #ff7575;
+  border-width: 0 0 4px 0;
+  outline: none;
+}
+.register .register__content .register__wrap .register__wrap-check .form-check {
+  font-size: 25px;
+}
+.register .register__content .register__submit {
+  text-align: center;
+}
+
+footer .footer__top {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+footer .footer__top .footer__top-content {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer__top .footer__top-content .footer__top-item {
+  flex: 1;
+}
+footer .footer__top .footer__top-content .footer__top-item h4 {
+  color: #262626;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer .footer__top .footer__top-content .footer__top-item ul {
+  list-style: none;
+  padding-left: 0;
+  color: gray;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+}
+footer .footer__top .footer__top-content .footer__top-item p {
+  color: gray;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+}
+footer .footer__top .footer__top-content .footer__top-item a {
+  text-decoration: none;
+  color: #ff7575;
+}
+footer .footer__bottom {
+  background-color: #262626;
+  color: white;
+}
+footer .footer__bottom .footer__bottom-content {
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer__bottom .footer__bottom-content .footer__bottom-item {
+  flex: 1;
+}
+footer .footer__bottom .footer__bottom-content .footer__bottom-item h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer .footer__bottom .footer__bottom-content .footer__bottom-item p {
+  color: gray;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+}
+footer .footer__bottom .footer__bottom-content .footer__bottom-item a {
+  text-decoration: none;
+  color: #ff7575;
+}/*# sourceMappingURL=style.css.map */
